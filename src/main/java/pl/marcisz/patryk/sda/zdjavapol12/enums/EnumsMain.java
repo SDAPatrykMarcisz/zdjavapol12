@@ -17,13 +17,14 @@ public class EnumsMain {
         Season[] seasons = Season.values();
         for(Season s : seasons){
             System.out.print(s);
-            System.out.println(" " + s.getDaysCounter());
+            System.out.println(" " + s.getDaysCounterForYear(2020));
         }
         int winterNumber = Season.WINTER.ordinal();
         Season fromInt = Season.values()[winterNumber];
 
-        int daysCounter = fromString.getDaysCounter();
-
+        int daysCounter = fromString.getDaysCounterForYear(2019);
+        Season wiosna = Season.fromPolishTranslation("Wiosna");
+        System.out.println(wiosna);
     }
 
 }
