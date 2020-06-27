@@ -25,6 +25,35 @@ public class EnumsMain {
         int daysCounter = fromString.getDaysCounterForYear(2019);
         Season wiosna = Season.fromPolishTranslation("Wiosna");
         System.out.println(wiosna);
+
+        int comparisonResult = winter.compareTo(summer);
+        System.out.println(comparisonResult);
+        //wynik == 0 -> obiekty sa sobie rowne
+        //wynik < 0 -> obiekt porownywany jest wiekszy od obecnego
+        //wynik > 0 -> obiekt porownywany jest mniejszy od obecnego
+
+        EnumsMain.isGreaterThanSummer(fromInt);
+        EnumsMain.isGreaterThanSummer(InnyEnum.VALUE1);
+
+    }
+
+    enum InnyEnum{
+        VALUE1,
+        VALUE2;
+    }
+
+
+    public static void isGreaterThanSummer(Enum day) {
+        int a = day.compareTo(SUMMER);
+
+        if (a == 0) {
+            System.out.println("Its saturday");
+        } else if (a < 0) {
+            System.out.println("Its before Saturday");
+        } else {
+            System.out.println("Its after saturday");
+        }
+
     }
 
 }
