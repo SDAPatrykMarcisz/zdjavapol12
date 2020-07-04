@@ -19,10 +19,6 @@ class MyObjectTest {
         input.add(myA);
         input.add(myA);
 
-        MyObject[] tab = new MyObject[3];
-        tab[0] = new MyObject("a",1);
-        MyObject b = tab[0];
-
         assertEquals(5, input.size());
 
         //when
