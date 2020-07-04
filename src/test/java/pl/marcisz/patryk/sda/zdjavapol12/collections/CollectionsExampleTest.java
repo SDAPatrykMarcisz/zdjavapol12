@@ -29,4 +29,9 @@ class CollectionsExampleTest {
         assertEquals("cc", output.get(2));
     }
 
+    @Test
+    void shouldRunTestSets(){
+        MyObject.testSets();
+    }
+
 }
