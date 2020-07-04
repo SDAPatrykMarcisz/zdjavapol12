@@ -9,6 +9,16 @@ public class CollectionsExample {
 
     }
 
+    public static List<String> removeDuplicates(List<String> list){
+        List<String> toReturn = new ArrayList<>();
+        for(String s : list){
+            if(!toReturn.contains(s)){
+                toReturn.add(s);;
+            }
+        }
+        return toReturn;
+    }
+
     public static List<Integer> oddRandomNumbers() {
         List<Integer> oddNumbers = new ArrayList<>();
 //        List<Integer> oddNumbers = new LinkedList<>();
