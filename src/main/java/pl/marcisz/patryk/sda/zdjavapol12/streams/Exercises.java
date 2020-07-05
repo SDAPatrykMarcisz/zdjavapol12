@@ -81,6 +81,13 @@ public class Exercises {
         System.out.println(max5);
         System.out.println(max6);
 
+        max2.orElseThrow(() -> new RuntimeException());
+        max2.orElse(Integer.MIN_VALUE);
+        max2.orElseGet(() -> 2);
+        max2.ifPresentOrElse(
+                x -> System.out.println(x),
+                () -> { throw new RuntimeException(); }
+        );
 
 
     }
