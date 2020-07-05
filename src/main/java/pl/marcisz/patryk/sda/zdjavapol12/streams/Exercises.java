@@ -1,15 +1,13 @@
 package pl.marcisz.patryk.sda.zdjavapol12.streams;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Exercises {
 
     public static void main(String[] args) {
-        ex1();
+        ex2();
     }
 
     private static void ex1(){
@@ -42,6 +40,17 @@ public class Exercises {
         for(String s : collect){
             System.out.println(s);
         }
+    }
+
+    private static void ex2(){
+        Optional<String> first = Arrays.asList("first", "second", "third", "fourth", "fifth").stream()
+                .filter(x -> x.length() >= 7)
+                .findFirst();
+
+        System.out.println(first);
+
+        String element = first.orElseThrow(() -> new RuntimeException("element not found"));
+        System.out.println(element);
     }
 
 }
