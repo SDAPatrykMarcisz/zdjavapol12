@@ -12,7 +12,7 @@ public class LambdaExample {
         TYPE calculate(TYPE a, TYPE b);
     }
 
-    private static void calculator(MathOperation o, Number a, Number b){
+    private static void calculator(MathOperation<Double> o, Double a, Double b){
         System.out.println(o.calculate(a,b));
     }
 
