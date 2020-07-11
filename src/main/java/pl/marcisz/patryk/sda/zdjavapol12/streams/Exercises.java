@@ -8,7 +8,7 @@ import java.util.stream.Stream;
 public class Exercises {
 
     public static void main(String[] args) {
-        ex4();
+        ex6();
     }
 
     private static void ex1() {
@@ -54,7 +54,7 @@ public class Exercises {
         System.out.println(element);
     }
 
-    private static void ex4(){
+    private static void ex4() {
         OptionalInt max = IntStream.of(1, 26, 30, 2, 45)
                 .max();
 
@@ -86,7 +86,9 @@ public class Exercises {
         max2.orElseGet(() -> 2);
         max2.ifPresentOrElse(
                 x -> System.out.println(x),
-                () -> { throw new RuntimeException(); }
+                () -> {
+                    throw new RuntimeException();
+                }
         );
 
 
@@ -98,6 +100,19 @@ public class Exercises {
                 .map(String::valueOf)
                 .collect(Collectors.toSet());
 
+    }
+
+    private static void ex6() {
+        Double averageOfDoubles = Optional.of(
+                Stream.of(10.0, 20.0, 30.0, 40.0)
+                        .map(element -> Map.of(element, 1d).entrySet().stream().findFirst().get()) /* mapuje kazdy element streamu na obiekt Map.Entry */
+                        /* metoda Map.of tworzy mapę na podstawie parametrów typu pierwszy parametr klucz, drugi parametr wartosc, trzeci parametr klucz drugiej pary itd.*/
+                        .reduce(Map.of(0d, 0d).entrySet().stream().findFirst().get(),  /* accumulator, key to suma, wartosc to licznik */
+                                (acc, curr) -> Map.of(acc.getKey() + curr.getKey(), acc.getValue() + 1).entrySet().stream().findFirst().get()))
+                .map(entry -> entry.getKey() / entry.getValue()) /*mapowanie suma / licznik, ten .map należy do obiektu optional, nie do streamu */
+                .orElse(Double.NaN);
+
+        System.out.println(averageOfDoubles);
     }
 
 }
